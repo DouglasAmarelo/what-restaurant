@@ -39,8 +39,7 @@
 
 
 body {
-	// background: transparent url('/images/background.jpg') no-repeat center center;
-	background: transparent url('/images/street-food-tracking.jpg') no-repeat center center;
+	background: #8c736c url('../images/street-food-tracking.jpg') no-repeat center center;
 	background-size: cover;
 	position: relative;
 	user-select: none;
@@ -105,7 +104,7 @@ body {
 	.error {
 		@include rfs(80);
 		color: #f19a20;
-		text-transform: uppercase;
+		// text-transform: uppercase;
 	}
 }
 

@@ -53,7 +53,7 @@ $(document).ready(function() {
 			numTentativas.textContent = numTentativasText;
 		}
 		else {
-			restaurante.innerHTML = '<span class="error">apenas 3 tentativas</span>';
+			restaurante.innerHTML = '<span class="error">dissemos<br />3 tentativas</span>';
 		}
 	});
 
