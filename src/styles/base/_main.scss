@@ -31,71 +31,8 @@ body {
 	font-size: 14px;
 	font-weight: 200;
 	font-smooth: always;
+	height: 100%;
 	margin: 0;
 	min-height: 100vh;
 }
 
-.bg {
-	@include radialGradient(#6cb733, #4FA040);
-	height: 100%;
-	left: 0;
-	min-height: calc(100% + 150px);
-	position: absolute;
-	top: 0;
-	width: 100%;
-	z-index: 0;
-	overflow: hidden;
-
-	&:before,
-	&:after {
-		content: '';
-		height: 100%;
-		left: 0;
-		min-height: calc(100% + 150px);
-		opacity: .5;
-		position: absolute;
-		top: 0;
-		width: 100%;
-	}
-
-	&:before {
-		@include backGroundient(#015da6, #eef79e);
-		z-index: 0;
-	}
-
-	&:after {
-		@include backGroundient(#015da6, #eef79e);
-		z-index: 1;
-	}
-}
-
-.mask {
-	// background: transparent url('../images/mask-image.png') center center;
-	background: repeating-linear-gradient(
-		-45deg,
-		#777 1.3px,
-		#777 1.7px,
-		transparent 2.1px,
-		transparent 10.5px
-	);
-	height: 100%;
-	left: 0;
-	min-height: calc(100% + 150px);
-	opacity: .4;
-	position: absolute;
-	top: 0;
-	width: 100%;
-	z-index: 3;
-
-	&:before {
-		background-color: #7eca71;
-		content: '';
-		height: 100%;
-		opacity: .4;
-		position: absolute;
-		right: 0;
-		top: 0;
-		width: 100%;
-		z-index: -1;
-	}
-}

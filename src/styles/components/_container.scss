@@ -15,32 +15,3 @@
 	.order--plus-one { order: 1; }
 }
 
-.max-content {
-	border: 1px solid #000;
-	margin: 0 auto;
-	overflow: hidden;
-	position: relative;
-	width: 550px;
-}
-
-.content-container {
-	opacity: 0;
-	position: absolute;
-	top: 60px;
-	transform: translateX(-120%);
-	transition:
-		opacity .2s ease,
-		transform .5s ease
-	;
-	z-index: -10;
-
-	// Active state
-	&.is--active {
-		opacity: 1;
-		position: relative;
-		top: inherit;
-		transform: translateX(0);
-		z-index: 2;
-	}
-}
-

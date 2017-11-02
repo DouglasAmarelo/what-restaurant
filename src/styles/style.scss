@@ -22,6 +22,7 @@
 // Utility helpers
 @import 'helpers/normalize';
 @import 'helpers/helpers';
+@import 'helpers/rfs';
 
 // Base styles
 @import 'base/fonts';
@@ -32,10 +33,52 @@
 @import 'components/container';
 @import 'components/grid';
 @import 'components/form';
-@import 'components/menu';
 
 // Site sections
 @import 'sections/header';
-// @import 'sections/section';
-@import 'sections/resultado';
-@import 'sections/footer';
+
+
+body {
+	// background: transparent url('/images/background.jpg') no-repeat center center;
+	background: transparent url('/images/street-food-tracking.jpg') no-repeat center center;
+	background-size: cover;
+	position: relative;
+
+	&:before {
+		background-color: #000;
+		content: '';
+		height: 140%;
+		opacity: .7;
+		position: fixed;
+		right: 0;
+		top: 0;
+		width: 100%;
+	}
+
+	&,
+	.container {
+		height: 100%;
+	}
+}
+
+h1 {
+	@include rfs(130);
+	display: block;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	right: 50%;
+	text-align: center;
+	text-shadow: 0 0 10px #000;
+	top: 50%;
+	transform: translate(50%, -50%);
+	width: 90%;
+
+	span {
+		@include rfs(55);
+		display: block;
+		padding: 5px 0;
+		text-transform: lowercase;
+	}
+}
+
