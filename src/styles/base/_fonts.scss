@@ -1,0 +1,41 @@
+@charset 'UTF-8';
+
+//------------------------------------
+//  FONTS
+//------------------------------------
+
+// @font-face {
+// 	font-family: 'Gotham Extra';
+// 	src: url('../fonts/hinted-Gotham-ExtraLight.eot');
+// 	src: local('Gotham Extra Light'), local('Gotham-ExtraLight');
+// 	src: url('../fonts/hinted-Gotham-ExtraLight.eot?#iefix') format('embedded-opentype');
+// 	src: url('../fonts/hinted-Gotham-ExtraLight.woff2') format('woff2');
+// 	src: url('../fonts/hinted-Gotham-ExtraLight.woff') format('woff');
+// 	src: url('../fonts/hinted-Gotham-ExtraLight.ttf') format('truetype');
+// 	font-weight: 200;
+// 	font-style: normal;
+// }
+
+@font-face {
+	font-family: 'Gotham';
+	src: url('../fonts/hinted-Gotham-Light.eot');
+	src: local('Gotham Light'), local('Gotham-Light');
+	src: url('../fonts/hinted-Gotham-Light.eot?#iefix') format('embedded-opentype');
+	src: url('../fonts/hinted-Gotham-Light.woff2') format('woff2');
+	src: url('../fonts/hinted-Gotham-Light.woff') format('woff');
+	src: url('../fonts/hinted-Gotham-Light.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+}
+
+$base-font-family       : 'Gotham', 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+$base-print-font-family : Georgia, 'Times New Roman', Times, serif !default;
+
+// .font-exlight {
+// 	font-family: 'Gotham Extra';
+// 	font-weight: 200;
+// }
+.font-light {
+	font-family: 'Gotham';
+	font-weight: 300;
+}

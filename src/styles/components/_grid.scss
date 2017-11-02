@@ -1,0 +1,173 @@
+@charset 'UTF-8';
+
+// VARIABLES
+$columns: 12;
+$gutter-width: 1rem;
+$half-gutter-width: $gutter-width / 2;
+$gutter-compensation: -1 * $half-gutter-width;
+
+$viewport-layouts: (
+	"xs":(),
+	"sm":( "min-width": map-get($breakpoint-map, "small") ),
+	"md":( "min-width": map-get($breakpoint-map, "medium") ),
+	"lg":( "min-width": map-get($breakpoint-map, "large") )
+);
+
+$viewport-layout: ();
+
+// MIXINS
+@mixin grid-row ( $reverse: false ) {
+	-js-display: flex;
+	display: flex;
+	flex-wrap: wrap;
+	flex: 0 1 auto;
+	margin-left: $gutter-compensation;
+	margin-right: $gutter-compensation;
+
+	@if ( $reverse == true ) {
+		flex-direction: row-reverse;
+	}
+}
+
+@mixin grid-row-alignment-horizontal ( $alignment ) {
+	$justify: inherit;
+
+	@if ( $alignment == center ) {
+		$justify: center;
+	}
+
+	@elseif ( $alignment == end ) {
+		$justify: flex-end;
+	}
+
+	@elseif ( $alignment == start ) {
+		$justify: flex-start;
+	}
+
+	justify-content: $justify;
+	text-align: $alignment;
+}
+
+@mixin grid-row-alignment-vertical ( $alignment ) {
+	@if ( $alignment == middle ) {
+		align-items: center;
+	}
+
+	@else if ( $alignment == bottom ) {
+		align-items: flex-end;
+	}
+
+	@else {
+		align-items: flex-start;
+	}
+}
+
+@mixin grid-row-spacing ( $spacing ) {
+	justify-content: $spacing;
+}
+
+@mixin grid-column ( $reverse: false ) {
+	flex: 0 1 auto;
+	padding-left: $half-gutter-width;
+	padding-right: $half-gutter-width;
+
+	@if ( $reverse == true ) {
+		flex-direction: column-reverse;
+	}
+}
+
+@mixin grid-column-span ( $columns-to-span: 12, $total-columns-in-row: 12 ) {
+	@if ( $columns-to-span == auto ) {
+		flex-grow: 1;
+		flex-basis: 0;
+		max-width: 100%;
+	}
+
+	@else {
+		$span-percentage: $columns-to-span / $total-columns-in-row;
+
+		flex-basis: $span-percentage * 100%;
+		max-width: $span-percentage * 100%;
+	}
+}
+
+@mixin grid-column-offset ( $columns-to-offset, $total-columns-in-row: 12 ) {
+	margin-left: ( $columns-to-offset / $total-columns-in-row ) * 100%;
+}
+
+@mixin grid-column-order ( $position ) {
+	@if ( $position == last ) {
+		$position: 999;
+	}
+
+	@else if ( $position == first ) {
+		$position: -999;
+	}
+
+	order: $position;
+}
+
+/* ROW */
+.row {
+	@include grid-row;
+
+	&.reverse { flex-direction: row-reverse; }
+
+	&.no-gutter {
+		margin: 0;
+
+		& > [class*='col-'] {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+}
+
+/* COL */
+[class*='col-'] { @include grid-column; }
+
+.col {
+	&.reverse { flex-direction: column-reverse; }
+}
+
+/* GRID */
+@mixin example-viewport ($key) {
+	.col-#{$key} {
+
+		& { @include grid-column-span(auto); }
+
+		@for $i from 1 through $columns {
+			&-#{$i} { @include grid-column-span($i); }
+		}
+	}
+
+	/* Justify content */
+	.start-#{$key}   { @include grid-row-alignment-horizontal(start); }
+	.center-#{$key}  { @include grid-row-alignment-horizontal(center); }
+	.end-#{$key}     { @include grid-row-alignment-horizontal(end); }
+	.around-#{$key}  { @include grid-row-spacing(space-around); }
+	.between-#{$key} { @include grid-row-spacing(space-between); }
+
+	/* Align items */
+	.top-#{$key}    { @include grid-row-alignment-vertical(top); }
+	.middle-#{$key} { @include grid-row-alignment-vertical(middle); }
+	.bottom-#{$key} { @include grid-row-alignment-vertical(bottom); }
+
+	/* Order */
+	.first-#{$key} { @include grid-column-order(first); }
+	.last-#{$key}  { @include grid-column-order(last); }
+}
+
+@each $key, $value in $viewport-layouts {
+	@if ($key == xs) {
+		@include example-viewport($key);
+	}
+
+	@else {
+		$min-width: map-get($value, "min-width");
+
+		@media screen and (min-width: $min-width) {
+			@include example-viewport($key);
+		}
+	}
+}

@@ -1,0 +1,17 @@
+@charset 'UTF-8';
+
+//------------------------------------
+// FOOTER
+//------------------------------------
+
+.footer {
+	font-size: 11px;
+	margin: 10px 0 5px 0;
+
+	a {
+		color: #fff;
+		text-decoration: none;
+
+		&:hover { text-decoration: underline; }
+	}
+}

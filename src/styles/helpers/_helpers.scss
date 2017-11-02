@@ -1,0 +1,164 @@
+@charset 'UTF-8';
+
+//------------------------------------
+//  HELPER
+//------------------------------------
+
+.clearfix {
+	&:after {
+		clear: both;
+		content: ' ';
+		display: block;
+		font-size: 0;
+		height: 0;
+		visibility: hidden;
+	}
+}
+* html .clearfix {zoom: 1;}
+*:first-child+html .clearfix {zoom: 1;}
+
+
+// Add/remove floats
+.float-left  { float: left;  }
+.float-right { float: right; }
+.float-none  { float: none;  }
+
+// Position elements
+.align-center,
+%align-center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.absolute-center {
+	display: block;
+	left: 50%;
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.no-margin { margin: 0 !important; }
+.no-padding { padding: 0 !important; }
+
+
+// Displaying content
+.inline { display: inline; }
+.block { display: block; }
+
+// Lists
+.no-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+// Hide elements
+.hide {
+	display: none!important;
+	visibility: hidden!important;
+}
+
+.show {
+	display: block!important;
+	visibility: visible!important;
+}
+
+.invisible,
+%invisible {
+	background: transparent;
+	border: 0;
+	color: transparent;
+	font-size: 0;
+	height: 0;
+	left: 0;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	text-indent: -99999cm;
+	top: 0;
+	visibility: hidden;
+	width: 0;
+}
+.superhide,
+%superhide {
+	@extend %invisible;
+	display: none;
+}
+
+// Hide text
+.screen-reader,
+%screen-reader,
+.text-hide,
+%text-hide {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+
+// Text alignment
+.text-left    { text-align: left;    }
+.text-right   { text-align: right;   }
+.text-center  { text-align: center;  }
+.text-justify { text-align: justify; }
+
+// Font weights
+.weight-light,
+%weight-light { font-weight: 300; }
+
+.weight-normal,
+%weight-normal { font-weight: 400; }
+
+.weight-semibold,
+%weight-semibold { font-weight: 600; }
+
+.weight-bold,
+%weight-bold { font-weight: 700; }
+
+
+// All-caps text
+.text-uppercase { text-transform: uppercase; }
+
+.vertical-image {vertical-align: middle;}
+
+// Stylized ampersand
+.amp { font: italic 110% Baskerville, 'Goudy Old Style', 'Palatino', 'Book Antiqua', serif; }
+
+
+// Caret icon
+.caret {
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 5px solid;
+	display: inline-block;
+	margin: 0 0 3px 4px;
+	vertical-align: middle;
+	width: 0;
+}
+
+// Full-width elements
+.full-width { width: 100%; }
+
+img.full-width,
+%full-width-image {
+	display: block;
+	height: auto;
+	max-width: 100%;
+	width: auto;
+}
+
+// Fluid container (ideal for img, embed object & iframe )
+.fluid {
+	height: auto;
+	max-width: 100%;
+}
+
+.wFull,
+%wFull { box-sizing: border-box; }
