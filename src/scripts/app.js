@@ -31,6 +31,8 @@ $(document).ready(function() {
 	];
 
 	var clickCounter = 0;
+	var numTentativas = document.querySelector('.tentativas');
+	var numTentativasText = parseInt(numTentativas.textContent);
 
 	function randomRestaurant() {
 		var i = Math.floor( Math.random() * restaurants.length );
@@ -44,7 +46,11 @@ $(document).ready(function() {
 
 			randomRestaurant();
 
+			console.log(numTentativas);
+
 			clickCounter +=1;
+			numTentativasText -= 1;
+			numTentativas.textContent = numTentativasText;
 		}
 		else {
 			restaurante.innerHTML = '<span class="error">apenas 3 tentativas</span>';

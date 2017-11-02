@@ -43,12 +43,13 @@ body {
 	background: transparent url('/images/street-food-tracking.jpg') no-repeat center center;
 	background-size: cover;
 	position: relative;
+	user-select: none;
 
 	&:before {
 		background-color: #000;
 		content: '';
 		height: 140%;
-		opacity: .7;
+		opacity: .5;
 		position: fixed;
 		right: 0;
 		top: 0;
@@ -58,6 +59,23 @@ body {
 	&,
 	.container {
 		height: 100%;
+	}
+}
+
+.top {
+	@include rfs(30);
+	color: #fff;
+	font-weight: bold;
+	padding: 20px 0;
+	position: fixed;
+	right: 0;
+	text-align: center;
+	top: 0;
+	width: 100%;
+
+	span:not(.tentativas) {
+		display: block;
+		text-transform: uppercase;
 	}
 }
 
@@ -72,7 +90,6 @@ body {
 	text-shadow: 0 0 10px #000;
 	top: 50%;
 	transform: translate(50%, -50%);
-	user-select: none;
 	width: 90%;
 
 	span {
@@ -87,7 +104,7 @@ body {
 
 	.error {
 		@include rfs(80);
-		color: #d0d;
+		color: #f19a20;
 		text-transform: uppercase;
 	}
 }
