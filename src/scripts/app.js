@@ -2,6 +2,9 @@ $(document).ready(function() {
 
 	'use strict';
 
+	var restaurante = document.querySelector('.restaurante');
+	var container = document.querySelector('body');
+
 	var restaurants = [
 		'Benedito <span>(Tente de novo)</span>',
 		'Madero <span>(2x / mês)</span>',
@@ -27,14 +30,26 @@ $(document).ready(function() {
 		'PF'
 	];
 
+	var clickCounter = 0;
+
 	function randomRestaurant() {
 		var i = Math.floor( Math.random() * restaurants.length );
-		console.log(i);
 
-		var h1 = document.querySelector('h1');
-
-		h1.innerHTML = restaurants[i];
+		restaurante.innerHTML = restaurants[i];
 	}
+
+	container.addEventListener('click', function(){
+
+		if (clickCounter <= 2 ) {
+
+			randomRestaurant();
+
+			clickCounter +=1;
+		}
+		else {
+			restaurante.innerHTML = '<span class="error">apenas 3 tentativas</span>';
+		}
+	});
 
 	randomRestaurant();
 

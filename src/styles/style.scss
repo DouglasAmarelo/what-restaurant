@@ -61,7 +61,7 @@ body {
 	}
 }
 
-h1 {
+.restaurante {
 	@include rfs(130);
 	display: block;
 	margin: 0;
@@ -72,13 +72,23 @@ h1 {
 	text-shadow: 0 0 10px #000;
 	top: 50%;
 	transform: translate(50%, -50%);
+	user-select: none;
 	width: 90%;
 
 	span {
-		@include rfs(55);
 		display: block;
 		padding: 5px 0;
+	}
+
+	span:not(.error) {
+		@include rfs(55);
 		text-transform: lowercase;
+	}
+
+	.error {
+		@include rfs(80);
+		color: #d0d;
+		text-transform: uppercase;
 	}
 }
 
