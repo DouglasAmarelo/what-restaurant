@@ -15,7 +15,7 @@ $line-height-integer: #{$line-height-ratio};
 }
 
 html {
-	overflow-y: scroll;
+	// overflow-y: scroll;
 
 	body { opacity: 1 !important; } //prevent vwo flash
 }

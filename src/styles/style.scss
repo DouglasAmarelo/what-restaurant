@@ -27,12 +27,12 @@
 // Base styles
 @import 'base/fonts';
 @import 'base/main';
-@import 'base/selection';
+// @import 'base/selection';
 
 // Component styles Common
 @import 'components/container';
-@import 'components/grid';
-@import 'components/form';
+// @import 'components/grid';
+// @import 'components/form';
 
 // Site sections
 @import 'sections/header';
@@ -61,19 +61,29 @@ body {
 	}
 }
 
-.top {
+.topo {
 	@include rfs(30);
 	color: #fff;
 	font-weight: bold;
-	padding: 20px 0;
+	padding: 15px 0;
 	position: fixed;
 	right: 0;
 	text-align: center;
 	top: 0;
 	width: 100%;
 
-	span:not(.tentativas) {
-		display: block;
+	h1,
+	h2 {
+		margin: 0;
+		padding: 0;
+	}
+
+	.topo__title {
+		@include rfs(42);
+	}
+
+	.topo_subtitle {
+		@include rfs(24);
 		text-transform: uppercase;
 	}
 }
@@ -81,6 +91,7 @@ body {
 .restaurante {
 	@include rfs(130);
 	display: block;
+	line-height: 100%;
 	margin: 0;
 	padding: 0;
 	position: absolute;
@@ -97,14 +108,18 @@ body {
 	}
 
 	span:not(.error) {
-		@include rfs(55);
-		text-transform: lowercase;
+		@include rfs(42);
+		// text-transform: lowercase;
+		line-height: 0;
+		text-transform: uppercase;
 	}
 
 	.error {
-		@include rfs(80);
+		@include rfs(50);
 		color: #f19a20;
-		// text-transform: uppercase;
+		line-height: 100%;
+		margin-bottom: .5em;
+		text-transform: uppercase;
 	}
 }
 

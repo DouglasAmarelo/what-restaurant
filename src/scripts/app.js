@@ -2,12 +2,10 @@ $(document).ready(function() {
 
 	'use strict';
 
-	var restaurante = document.querySelector('.restaurante');
-	var container = document.querySelector('body');
-
+	// Lista de restaurantes
 	var restaurants = [
 		'Benedito <span>(Tente de novo)</span>',
-		'Madero <span>(2x / mês)</span>',
+		'Madero <span>(máximo 2x / mês)</span>',
 		'SmartAurant',
 		'Mulher que Dança',
 		'Karina\'s',
@@ -18,45 +16,81 @@ $(document).ready(function() {
 		'Vilinha',
 		'Espetinho',
 		'Atravessar a rua',
-		'Hoje não quero ajudar!',
 		'Purê <span(se tiver em 4 pessoas)</span>',
 		'Viado Paulista',
-		'Piscina',
+		'Piscininha',
 		'3B',
 		'Guri',
-		'Si Señor <span>(VR cheio)</span>',
+		'Si Señor <span>(só com o VR cheio)</span>',
 		'Brau',
-		'Kilinho',
-		'PF'
+		'Algum Kilinho',
+		'Algum PF',
+		'Vapiano',
+		'PCC',
+		'Pastel da Maria',
+		'Prime Burger',
+		'Bolados',
+		'Cheese Dog',
+		'New Dog',
+		'Espeto Paulista',
+		'Joakins',
+		'Buger Lab',
+		'Padaria Milionária',
+		'The Fifties',
+		'Dog Milionário',
+		'SubWay',
+		'La Pergoletta',
+		'Butcher\'s'
 	];
 
+
+	// Variáveis
 	var clickCounter = 0;
 	var numTentativas = document.querySelector('.tentativas');
 	var numTentativasText = parseInt(numTentativas.textContent);
+	var restaurante = document.querySelector('.restaurante');
+	var opcoes = document.querySelector('.opcoes');
 
+
+	// Exibe a quantidade de restaurantes da lista
+	opcoes.innerText = restaurants.length;
+
+
+	// Sorteia o restaurante
 	function randomRestaurant() {
 		var i = Math.floor( Math.random() * restaurants.length );
 
-		restaurante.innerHTML = restaurants[i];
+		return restaurants[i];
 	}
 
-	container.addEventListener('click', function(){
 
-		if (clickCounter <= 2 ) {
+	// Sorteia e atualiza conteudo da página
+	function updateContent() {
 
-			randomRestaurant();
+		if ( clickCounter <= 2 ) {
 
-			console.log(numTentativas);
+			restaurante.innerHTML = randomRestaurant();
 
 			clickCounter +=1;
 			numTentativasText -= 1;
 			numTentativas.textContent = numTentativasText;
 		}
 		else {
-			restaurante.innerHTML = '<span class="error">dissemos<br />3 tentativas</span>';
+			restaurante.innerHTML = '<span class="error">Suas tentativas terminaram.</span>';
 		}
+	}
+
+
+	// Sorteia ao clicar na página ou ao pressionar a 'barra de espaço'
+	document.addEventListener('click', updateContent);
+	document.addEventListener('keyup', function(e){
+		e.preventDefault();
+
+		if( e.keyCode === 32 ) { updateContent(); }
 	});
 
-	randomRestaurant();
+
+	// Quando a página inicia
+	restaurante.innerHTML = randomRestaurant();
 
 });
