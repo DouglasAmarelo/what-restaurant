@@ -2,6 +2,17 @@ $(document).ready(function() {
 
 	'use strict';
 
+	// Lista de background images
+	var images = [
+		'background-1.jpg',
+		'background-2.jpg',
+		'background-3.jpg',
+		'background-4.jpg',
+		'background-5.jpg',
+		'background-6.jpg',
+		'background-7.jpg'
+	];
+
 	// Lista de restaurantes
 	var restaurants = [
 		'Benedito <span>(Tente de novo)</span>',
@@ -45,30 +56,40 @@ $(document).ready(function() {
 
 
 	// Variáveis
-	var clickCounter = 0;
-	var numTentativas = document.querySelector('.tentativas');
+	var restaurante       = document.querySelector('.restaurante');
+	var opcoes            = document.querySelector('.opcoes');
+	var numTentativas     = document.querySelector('.tentativas');
+	var docBody           = document.querySelector('body');
 	var numTentativasText = parseInt(numTentativas.textContent);
-	var restaurante = document.querySelector('.restaurante');
-	var opcoes = document.querySelector('.opcoes');
+	var clickCounter      = 0;
 
+	// Função genérica de sorteio
+	function randomAll( itemsList ) {
+		var i = Math.floor( Math.random() * itemsList.length );
+
+		return itemsList[i];
+	}
 
 	// Exibe a quantidade de restaurantes da lista
 	opcoes.innerText = restaurants.length;
 
+	// Sorteia as imagens de fundo
+	function randomBackground(){ return randomAll( images ); }
+
 
 	// Sorteia o restaurante
-	function randomRestaurant() {
-		var i = Math.floor( Math.random() * restaurants.length );
-
-		return restaurants[i];
-	}
+	function randomRestaurant() { return randomAll( restaurants ); }
 
 
 	// Sorteia e atualiza conteudo da página
 	function updateContent() {
 
+		// Altera a imagem de fundo
+		docBody.style.backgroundImage = 'url("images/' + randomBackground() + '")';
+
 		if ( clickCounter <= 2 ) {
 
+			// Altera nome do restaurante
 			restaurante.innerHTML = randomRestaurant();
 
 			clickCounter +=1;

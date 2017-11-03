@@ -38,8 +38,10 @@
 @import 'sections/header';
 
 
+// Backgound
 body {
-	background: #8c736c url('../images/street-food-tracking.jpg') no-repeat center center;
+	background: #8c736c no-repeat center center;
+	background-image: url('../images/background-1.jpg');
 	background-size: cover;
 	position: relative;
 	user-select: none;
@@ -48,7 +50,7 @@ body {
 		background-color: #000;
 		content: '';
 		height: 140%;
-		opacity: .5;
+		opacity: .7;
 		position: fixed;
 		right: 0;
 		top: 0;
@@ -56,11 +58,10 @@ body {
 	}
 
 	&,
-	.container {
-		height: 100%;
-	}
+	.container { height: 100%; }
 }
 
+// Topo da página
 .topo {
 	@include rfs(30);
 	color: #fff;
@@ -78,9 +79,7 @@ body {
 		padding: 0;
 	}
 
-	.topo__title {
-		@include rfs(42);
-	}
+	.topo__title { @include rfs(42); }
 
 	.topo_subtitle {
 		@include rfs(24);
@@ -88,6 +87,7 @@ body {
 	}
 }
 
+// Nome do restaurante escolhido
 .restaurante {
 	@include rfs(130);
 	display: block;
@@ -109,8 +109,7 @@ body {
 
 	span:not(.error) {
 		@include rfs(42);
-		// text-transform: lowercase;
-		line-height: 0;
+		line-height: 20px;
 		text-transform: uppercase;
 	}
 
@@ -123,3 +122,14 @@ body {
 	}
 }
 
+// Load background images
+.image-load {
+	bottom: 0;
+	height: 0;
+	left: 0;
+	opacity: 0;
+	overflow: hidden;
+	position: fixed;
+	width: 0;
+	z-index: -1;
+}
