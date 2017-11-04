@@ -1,7 +1,8 @@
-$(document).ready(function() {
+// $(document).ready(function() {
 
 	'use strict';
 
+(function() {
 	// Lista de background images
 	var images = [
 		'background-1.jpg',
@@ -22,7 +23,7 @@ $(document).ready(function() {
 		'Karina\'s',
 		'Cantinho <br /> da Gula',
 		'Mineiro',
-		'Jasmin',
+		'Jasmim',
 		'Tio da Bocha',
 		'Vilinha',
 		'Espetinho',
@@ -114,4 +115,6 @@ $(document).ready(function() {
 	// Quando a página inicia
 	restaurante.innerHTML = randomRestaurant();
 
-});
+})();
+
+// });
