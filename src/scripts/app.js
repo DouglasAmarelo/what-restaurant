@@ -29,7 +29,7 @@
 		'Espetinho',
 		'Atravessar a rua',
 		'Purê <span(se tiver em 4 pessoas)</span>',
-		'Viado Paulista',
+		'ViRado Paulista',
 		'Piscininha',
 		'3B',
 		'Guri',
