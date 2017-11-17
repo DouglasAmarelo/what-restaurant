@@ -39,6 +39,7 @@
     "gulp-zip": "^4.0.0",
     "handlebars": "^4.0.10",
     "handlebars-loader": "^1.6.0",
+    "jquery": "^3.2.1",
     "jshint": "^2.9.5",
     "jshint-stylish": "^2.2.1",
     "json-loader": "^0.5.7",
