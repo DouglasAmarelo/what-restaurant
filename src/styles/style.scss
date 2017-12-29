@@ -167,7 +167,7 @@ body {
 
 	&:before {
 		content: '';
-		background: url('/images/random-ico-02.png') center center no-repeat;
+		background: url('../images/random-ico-02.png') center center no-repeat;
 		background-size: contain;
 		display: block;
 		height: 35px;
@@ -203,6 +203,6 @@ body {
 
 	// Restart state
 	&.restart {
-		&:before { background-image: url('/images/random-ico-01.png'); }
+		&:before { background-image: url('../images/random-ico-01.png'); }
 	}
 }

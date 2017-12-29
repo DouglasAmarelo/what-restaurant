@@ -121,7 +121,7 @@ ctaSortear.addEventListener('click', function(event) {
 	}
 
 	if ( clickCounter === 5 && this.classList.contains('restart') ) {
-		window.location.href = '/';
+		window.location.reload();
 	}
 
 	updateContent();
