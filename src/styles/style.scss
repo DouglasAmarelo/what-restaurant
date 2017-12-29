@@ -37,6 +37,15 @@
 // Site sections
 @import 'sections/header';
 
+// Helpers
+.all-center {
+	display: block;
+	position: absolute;
+	right: 50%;
+	text-align: center;
+	top: 50%;
+	transform: translate(50%, -50%);
+}
 
 // Backgound
 body {
@@ -58,7 +67,10 @@ body {
 	}
 
 	&,
-	.container { height: 100%; }
+	.container {
+		height: 100%;
+		overflow: hidden;
+	}
 }
 
 // Topo da página
@@ -94,12 +106,8 @@ body {
 	line-height: 100%;
 	margin: 0;
 	padding: 0;
-	position: absolute;
 	right: 50%;
-	text-align: center;
 	text-shadow: 0 0 10px #000;
-	top: 50%;
-	transform: translate(50%, -50%);
 	width: 90%;
 
 	span {
@@ -132,4 +140,69 @@ body {
 	position: fixed;
 	width: 0;
 	z-index: -1;
+}
+
+// CTA sortear
+.sortear {
+	@include rfs(38);
+	background-image: linear-gradient(to right, #f77062 0%, #fe5196 100%);
+	border-radius: 50px;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	font-weight: bold;
+	min-height: 55px;
+	min-width: 55px;
+	padding: .9em 3em;
+	text-transform: uppercase;
+	transition:
+		border-radius .5s ease,
+		color .5s ease,
+		font-size .5s ease,
+		right .5s ease,
+		top .5s ease,
+		transform .5s ease
+	;
+
+	&:before {
+		content: '';
+		background: url('/images/random-ico-02.png') center center no-repeat;
+		background-size: contain;
+		display: block;
+		height: 35px;
+		opacity: 0;
+		position: absolute;
+		right: 50%;
+		top: 50%;
+		transform: translate(50%, -50%);
+		transition: transform .7s ease;
+		width: 35px;
+		z-index: -1;
+	}
+
+	&:focus { outline: none; }
+
+	// Active state
+	&.is--active {
+		@include rfs(18);
+		font-size: 0;
+		color: transparent;
+		top: 100%;
+		right: 0;
+		transform: translate(-50%, -150%);
+
+		&:before {
+			opacity: 1;
+		}
+
+		// &:hover {
+		// 	&:before { transform: translate(50%, -50%) rotate(170deg); }
+		// }
+	}
+
+	// Restart state
+	&.restart {
+		&:before { background-image: url('/images/random-ico-01.png'); }
+	}
 }
